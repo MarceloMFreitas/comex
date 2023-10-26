@@ -9,10 +9,11 @@
     }
 
     public function removerProduto(Produto $produto) {
-        // Remove o produto da lista
-        $key = array_search($produto, $this->produtos);
+       $key = array_search($produto, $this->produtos);
         if ($key !== false) {
             unset($this->produtos[$key]);
+        } else {
+            throw new InvalidArgumentException("Produto não encontrado no carrinho.");
         }
     }
 
@@ -25,20 +26,35 @@
     }
 
     public function calcularDesconto($percentualDesconto) {
+        if ($percentualDesconto < 0) {
+            throw new LogicException("O percentual de desconto não pode ser negativo.");
+        }
         $total = $this->calcularTotal();
         return $total * ($percentualDesconto / 100);
     }
 
     public function calcularFrete($valorFrete) {
+        if ($valorFrete < 0) {
+            throw new LogicException("O valor do frete não pode ser negativo.");
+        }
         return $valorFrete;
     }
 
     public function calcularValorTotalCompra($percentualDesconto, $valorFrete) {
+        if ($percentualDesconto < 0) {
+            throw new LogicException("O percentual de desconto não pode ser negativo.");
+        }
+
+        if ($valorFrete < 0) {
+            throw new LogicException("O valor do frete não pode ser negativo.");
+        }
+
         $total = $this->calcularTotal();
         $desconto = $this->calcularDesconto($percentualDesconto);
         $total -= $desconto;
         $total += $valorFrete;
-        retur
+        return $total;
+    }
 }
 
 

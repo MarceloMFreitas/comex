@@ -13,15 +13,23 @@ class Produto {
 
  
     public function adicionarProduto($quantidade) {
+
+        if ($quantidade < 0) {
+            throw new InvalidArgumentException("A quantidade a ser adicionada deve ser positiva.");
+        }
         $this->quantidade += $quantidade;
     }
 
 
     public function removerProduto($quantidade) {
+
+        if ($quantidade < 0) {
+            throw new InvalidArgumentException("A quantidade a ser removida deve ser positiva.");
+        }
         if ($this->quantidade >= $quantidade) {
             $this->quantidade -= $quantidade;
         } else {
-            echo "Não há produtos suficientes em estoque para remover.\n";
+            ethrow new InvalidArgumentException("A quantidade em estoque não pode ser menor que zero.");
         }
     }
 

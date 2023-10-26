@@ -1,5 +1,7 @@
 <?php
 
+require 'Modelo\Produto\CarrinhoDeCompras.php';
+require 'Modelo\Produto\Produto.php';
 
 use Comex\Modelo\CarrinhoDeCompras;
 use Comex\Modelo\Produto\Produto;

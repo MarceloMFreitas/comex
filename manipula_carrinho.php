@@ -1,8 +1,8 @@
 <?php
 
-require 'CarrinhoDeCompra.php'
-require 'produto.php';
 
+use Comex\Modelo\CarrinhoDeCompras;
+use Comex\Modelo\Produto\Produto;
 
 $produto1 = new Produto('Notebook', 3000, 5);
 $produto2 = new Produto('Video Game', 1500, 2);

@@ -2,6 +2,7 @@
 
 
 namespace Comex\Modelo\Produto;
+use InvalidArgumentException;
 
 class Produto {
     private $nome;
@@ -33,7 +34,7 @@ class Produto {
         if ($this->quantidade >= $quantidade) {
             $this->quantidade -= $quantidade;
         } else {
-            ethrow new InvalidArgumentException("A quantidade em estoque não pode ser menor que zero.");
+            throw new InvalidArgumentException("A quantidade em estoque não pode ser menor que zero.");
         }
     }
 

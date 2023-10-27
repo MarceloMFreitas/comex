@@ -1,5 +1,8 @@
 <?php
 
+require 'Modelo\Produto\Produto.php';
+
+
 use Comex\Modelo\Produto\Produto;
 
 $produto = new Produto('Notebook', 3000, 5);

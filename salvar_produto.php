@@ -1,5 +1,10 @@
 <?php 
 use Comex\Modelo\Produto\Produto;
+
+require 'conexao.php';
+require 'Reposotorio\DAOProduto.php';
+
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nome = $_POST['nome'];
         $preco = $_POST['preco'];
@@ -12,7 +17,7 @@ use Comex\Modelo\Produto\Produto;
 
         $produtoDAO->salvar($produto);
     
-        header("Location: sucesso.php");
+        header("Location: sucesso.html");
         exit;
     }
 

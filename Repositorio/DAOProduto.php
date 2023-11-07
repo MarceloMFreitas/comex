@@ -1,6 +1,7 @@
 <?php 
 use Comex\Modelo\Produto\Produto;
 
+
 class ProdutoDAO {
     private $pdo;
 

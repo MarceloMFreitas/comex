@@ -3,7 +3,8 @@ use Comex\Modelo\Cliente\Cliente;
 
 require 'Repositorio/DAOCliente.php'; 
 
-
+$caminhoBanco = __DIR__ . '/banco.sqlite';
+$pdo = new PDO('sqlite:' . $caminhoBanco);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];

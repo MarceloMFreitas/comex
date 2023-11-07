@@ -1,8 +1,11 @@
 <?php 
 use Comex\Modelo\Produto\Produto;
 
-require 'conexao.php';
+
 require 'Reposotorio\DAOProduto.php';
+
+$caminhoBanco = __DIR__ . '/banco.sqlite';
+$pdo = new PDO('sqlite:' . $caminhoBanco);
 
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
